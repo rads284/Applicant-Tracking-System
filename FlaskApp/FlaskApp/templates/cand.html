@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("cat.jpg");
+    min-height: 100%;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+</style>
+<body>
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+      <a href="http://127.0.0.1:5000/" class="w3-bar-item w3-button w3-wide">HOME</a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right">
+          <a href="login3.html" class="w3-bar-item w3-button"><i class="fa"></i>ADMINISTRATOR LOGIN</a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+
+    </div>
+  </div>
+
+      <!-- Contact Section -->
+      <div class=" w3-container w3-light-grey" style="padding: 16px" id="contact">
+        <h1 class="w3-center" id="home">HELLO {{name[0]}} </h1>
+        <!-- <p class="w3-center w3-large">Lets get in touch. Send us a message:</p> -->
+        <div class="w3-row-padding" style="margin-top:64px">
+          <div class="w3-half">
+            <form action="/action_page.php" target="_blank">
+              <h3>PREFERENCES</h3>
+               <!-- <p><input class="w3-input w3-border" type="textarea" placeholder="Enter Preferences" required name="pref"></p> -->
+              <!-- <textarea rows="10" cols="45" placeholder="Enter Preferences" required name="pref"></textarea> -->
+              <p><input class="w3-input w3-border" type="text" placeholder="Preference 1" required name="pref1"></p>
+              <p><input class="w3-input w3-border" type="text" placeholder="Preference 2" required name="pref2"></p>
+              <p><input class="w3-input w3-border" type="text" placeholder="Preference 3" required name="pref3"></p>
+              <p><input class="w3-input w3-border" type="text" placeholder="Preference 4" required name="pref4"></p>
+              <p><input class="w3-input w3-border" type="text" placeholder="Preference 5" required name="pref5"></p>
+              <p><input class="w3-input w3-border" type="text" placeholder="Preference 6" required name="pref6"></p>
+              <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> VIEW
+                </button>
+              </p>
+            </form>
+          </div>
+          <div class="w3-half w3-container">
+            <form action="{{ url_for('accept') }}" method="post">
+              <h3>JOBS AVAILABLE</h3>
+              <!-- <div class="w3-container"> -->
+              <table class="w3-table-all">
+                  <thead>
+                    <td>Choice</td>
+                    <td>Job ID</td>
+                    <td>Domain</td>
+                    <td>Post</td>
+                    <td>Salary</td>
+                    <td>Hours</td>
+                    <!-- <td>Company ID</td> -->
+                    <td>Company</td>
+                  </thead>
+                  {% for row in rows %}
+                  <tr>
+
+                    <td ><input class="w3-input w3-border" type="checkbox" name="applyingfor" value={{row[0]}}></td>
+                    <td >{{row[0]}}</td>
+                    <td >{{row[1]}}</td>
+                    <td >{{row[2]}}</td>
+                    <td >{{row[3]}}</td>
+                    <td >{{row[4]}}</td>
+                    <td >{{row[5]}}</td>
+                  </tr>
+                   {% endfor %}
+                </table>
+                <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> APPLY
+                </button>
+              </p>
+               <!-- </div> -->
+          </form>
+        </div>
+
+      </div>
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa"></i>To the top</a>
+
+</footer>
+
+<!-- Add Google Maps -->
+<script>
+
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+    } else {
+        mySidebar.style.display = 'block';
+    }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>

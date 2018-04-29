@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    /* background-image: url("cat.jpg"); */
+    min-height: 100%;
+}
+th{ display:inline-block;width:auto;text-align:center;text-align:center!important}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+</style>
+<body>
+
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a href="http://127.0.0.1:5000/" class="w3-bar-item w3-button w3-wide">HOME</a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right">
+            <a href="admin.html" class="w3-bar-item w3-button"><i class="fa"></i>ADMINISTRATOR LOGIN</a>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+
+      </div>
+    </div>
+
+
+
+
+
+      <!-- Contact Section -->
+      <div class=" w3-container w3-light-grey" style="padding:60px 16px" id="contact">
+        <h1 class="w3-center" id="home">HELLO ADMIN!</h1>
+        <div class="w3-row-padding" style="margin-top:64px">
+          <div class="w3-container w3-center">
+              <form action="/action_page.php" target="_blank">
+              <!--select * from candidate natural join resume-->
+               <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> VIEW CANDIDATES AND RESUMES
+                </button>
+              </p>
+                  <div class="w3-container">
+                          <table class="w3-table-all">
+                            <thead>
+                              <th>Candidate ID</th>
+                              <th>Candidate Name</th>
+                              <th>Resume ID</th>
+                              <th>Age</th>
+                              <th>Sex</th>
+                              <th>Domain</th>
+                              <th>Preferences</th>
+                              <th>Experience</th>
+                              <th>Company ID</th>
+                            </thead>
+                            {% for row1 in rows1 %}
+                            <tr>
+                              <td >{{row1[0]}}</td>
+                              <td >{{row1[1]}}</td>
+                              <td >{{row1[2]}}</td>
+                              <td >{{row1[3]}}</td>
+                              <td >{{row1[4]}}</td>
+                              <td >{{row1[5]}}</td>
+                              <td >{{row1[6]}}</td>
+                              <td >{{row1[7]}}</td>
+                              <td >{{row1[8]}}</td>
+                              <!-- <td >{{row1[9]}}</td> -->
+                             </tr>
+                             {% endfor %}
+                          </table>
+                      </p>
+                  </div>
+              </form>
+
+              <!--select * from country  -->
+              <form action="/action_page.php" target="_blank">
+              <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> LIST COUNTRIES
+                </button>
+              </p>
+                  <div class="w3-container">
+                          <table class="w3-table-all">
+                            <thead>
+                              <th>Country ID</th>
+                              <th>Name</th>
+                              <th>Permit Required?</th>
+                            </thead>
+                            {%for row3 in rows3%}
+                            <tr>
+
+                              <td >{{row3[0]}}</td>
+                              <td >{{row3[1]}}</td>
+                              <td >{{row3[2]}}</td>
+
+                            </tr>
+                            {% endfor %}
+                          </table>
+                      </p>
+                  </div>
+              </form>
+              <!-- select * from company-->
+              <form action="/action_page.php" target="_blank">
+               <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> VIEW COMPANIES
+                </button>
+              </p>
+                  <div class="w3-container">
+                          <table class="w3-table-all">
+                            <thead>
+                              <th>Company ID</th>
+                              <th>Name</th>
+                              <th>Domain</th>
+                              <th>Turnover</th>
+                              <th>Strength</th>
+                              <th>Country ID</th>
+                            </thead>
+                            {%for row4 in rows4%}
+                            <tr>
+                              <td >{{row4[0]}}</td>
+                              <td >{{row4[1]}}</td>
+                              <td >{{row4[2]}}</td>
+                              <td >{{row4[3]}}</td>
+                              <td >{{row4[4]}}</td>
+                              <td >{{row4[5]}}</td>
+                            </tr>
+                            {% endfor %}
+                          </table>
+                      </p>
+                  </div>
+              </form>
+              <!-- SELECT company.name,j.* from job_description j, company WHERE j.comp_id=company.company_id order by comp_id -->
+              <form action="/action_page.php" target="_blank">
+               <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> VIEW JOB OPENINGS
+                </button>
+              </p>
+                  <div class="w3-container">
+                          <table class="w3-table-all">
+                            <thead>
+                              <th>Job ID</th>
+                              <th>Domain</th>
+                              <th>Post</th>
+                              <th>Salary</th>
+                              <th>Working Hours</th>
+                              <th>Experience Req.</th>
+                              <th>Education Req.</th>
+                              <th>Company ID</th>
+                              <th>Country ID</th>
+                            </thead>
+                            {%for row5 in rows5%}
+                            <tr>
+                              <td >{{row5[0]}}</td>
+                              <td >{{row5[1]}}</td>
+                              <td >{{row5[2]}}</td>
+                              <td >{{row5[3]}}</td>
+                              <td >{{row5[4]}}</td>
+                              <td >{{row5[5]}}</td>
+                              <td >{{row5[6]}}</td>
+                              <td >{{row5[7]}}</td>
+                              <td >{{row5[8]}}</td>
+                            </tr>
+                            {% endfor %}
+                          </table>
+                      </p>
+                  </div>
+              </form>
+              <!--interview  -->
+              <form action="/action_page.php" target="_blank">
+               <p>
+                   <!-- select * from interviewed_by -->
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> VIEW SCHEDULED INTERVIEWS
+                </button>
+              </p>
+                  <div class="w3-container">
+                          <table class="w3-table-all">
+                            <thead>
+                              <th>Candidate ID</th>
+
+                              <th>Job ID</th>
+
+                              <th>Date</th>
+                              <th>Time</th>
+                              <th>Status</th>
+                            </thead>
+                            {%for row6 in rows6%}
+                            <tr>
+                              <td >{{row6[0]}}</td>
+                              <td >{{row6[1]}}</td>
+                              <td >{{row6[2]}}</td>
+                              <td >{{row6[3]}}</td>
+                              <td >{{row6[4]}}</td>
+                              <td >{{row6[5]}}</td>
+                              <td >{{row6[6]}}</td>
+                            </tr>
+                            {% endfor%}
+                          </table>
+                      </p>
+                  </div>
+              </form>
+              <form action="{{url_for('deletion'  )}}" method="post">
+              <!--DELETE FROM interviewed_by WHERE interviewed_by.int_date='2004-05-09-->
+              <div class="w3-center w3-container"><input class=" w3-border" style="width:120px; height:40px; text-align:center"type="text" placeholder="yyyy-mm-dd"  name="int_date" ></div>
+               <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> DELETE INTERVIEWS ON THIS DATE
+                </button>
+              </p>
+          </form>
+<!--
+
+              <form action="/action_page.php" target="_blank">
+               <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> VIEW JOB APPLICATIONS
+                </button>
+              </p>
+                  <div class="w3-container">
+                          <table class="w3-table-all">
+                            <thead>
+                              <th>Candidate ID</th>
+                              <th>Candidate Name</th>
+                              <th>Job ID</th>
+                              <th>Date of Application</th>
+                            </thead>
+                            <tr>
+                              <td id="cid7"></td>
+                              <td id="cname7"></td>
+                              <td id="jid7"></td>
+                              <td id="date7"></td>
+                            </tr>
+                          </table>
+                      </p>
+                  </div>
+              </form>
+
+              <form action="/action_page.php" target="_blank">
+               <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> VIEW PERMISSIONS
+                </button>
+              </p>
+                  <div class="w3-container">
+                          <table class="w3-table-all">
+                            <thead>
+                              <th>Candidate ID</th>
+                              <th>Candidate Name</th>
+                              <th>Country ID</th>
+                              <th>Country Name</th>
+                              <th>Duration</th>
+                            </thead>
+                            <tr>
+                              <td id="cid8"></td>
+                              <td id="cname8"></td>
+                              <td id="coid8"></td>
+                              <td id="coname8"></td>
+                              <td id="dur8"></td>
+                            </tr>
+                          </table>
+                      </p>
+                  </div>
+              </form>
+
+ist of companies ordered by country-->
+<!-- select company.name as company_name, country.name as country from company,country
+where company.country_id=country.country_id order by country.name;
+              <form action="/action_page.php" target="_blank">
+               <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> LIST COMPANIES (COUNTRY)
+                </button>
+              </p>
+                  <div class="w3-container">
+                          <table class="w3-table-all">
+                            <thead>
+                              <th>Country Name</th>
+                              <th>Candidate Name</th>
+                            </thead>
+                            <tr>
+                              <td id="cid9"></td>
+                              <td id="cname9"></td>
+                            </tr>
+                          </table>
+                      </p>
+                  </div>
+              </form>
+
+              List of candidates who can work in a particular country, ordered by country
+
+              select candidate.candidate_id,resume.name,country.name from candidate,resume,has_permit_for,country
+               where candidate.candidate_id=has_permit_for.candidate_id and has_permit_for.country_id=country.country_id
+               and candidate.resume_id=resume.resume_id order by country.name;
+              <form action="/action_page.php" target="_blank">
+               <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> LIST CANDIDATE ELIGIBILITY (COUNTRY)
+                </button>
+              </p>
+                  <div class="w3-container">
+                          <table class="w3-table-all">
+                            <thead>
+                              <th>Candidate ID</th>
+                              <th>Name</th>
+                              <th>Country Name</th>
+                            </thead>
+                            <tr>
+                              <td id="cid9"></td>
+                              <td id="rname9"></td>
+                              <td id="coid9"></td>
+                            </tr>
+                          </table>
+                      </p>
+                  </div>
+              </form>
+
+              List of companies with more than 500 employees
+               select company_id, name from company where no_of_employees>'500';
+              <form action="/action_page.php" target="_blank">
+               <p>
+                <button class="w3-button w3-black" type="submit">
+                  <i class="fa"></i> VIEW TOP COMPANIES (STRENGTH)
+                </button>
+              </p>
+                  <div class="w3-container">
+                          <table class="w3-table-all">
+                            <thead>
+                              <th>Company Name</th>
+                            </thead>
+                            <tr>
+                              <td id="compname10"></td>
+                            </tr>
+                          </table>
+                      </p>
+                  </div>
+              </form>
+
+              </div>
+
+              </div> -->
+
+</div>
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa"></i>To the top</a>
+
+</footer>
+
+<!-- Add Google Maps -->
+<script>
+
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+</body>
+</html>
